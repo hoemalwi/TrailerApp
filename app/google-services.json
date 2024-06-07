@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "414404026719",
+    "firebase_url": "https://tugas-besar-6b081-default-rtdb.firebaseio.com",
+    "project_id": "tugas-besar-6b081",
+    "storage_bucket": "tugas-besar-6b081.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414404026719:android:2bcdbcfdfcf73324fa56ea",
+        "android_client_info": {
+          "package_name": "com.l0122075.humamalwi.tubes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwORsuPLBPgbKM_5AA870Dj_AUf-sTPs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414404026719:android:965b82c4c9c52a0bfa56ea",
+        "android_client_info": {
+          "package_name": "com.l0122075.humamalwi.tugasbesar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwORsuPLBPgbKM_5AA870Dj_AUf-sTPs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
