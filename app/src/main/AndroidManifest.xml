@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TuBes"
         tools:targetApi="31">
         <activity
+            android:name=".DetailFilmActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserActivity"
             android:exported="false"
             android:label="@string/title_activity_user" />
@@ -41,7 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

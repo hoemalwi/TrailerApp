@@ -1,5 +1,6 @@
 package com.l0122075.humamalwi.tubes
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +34,15 @@ class MainAdapterUser(private var list: ArrayList<DataFilm>): RecyclerView.Adapt
                 title.text = currentItem.Judul
                 description.text = currentItem.Sinopsis
                 Picasso.get().load(currentItem.imgfilm).into(image)
+
+                root.setOnClickListener {
+                    val context = root.context
+                    val intent = Intent(context, DetailFilmActivity::class.java)
+                    intent.putExtra("film", currentItem)
+                    context.startActivity(intent)
+                }
             }
+
         }
     }
 

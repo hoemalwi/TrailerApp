@@ -23,6 +23,7 @@ class AdminActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
 
         binding = ActivityAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)

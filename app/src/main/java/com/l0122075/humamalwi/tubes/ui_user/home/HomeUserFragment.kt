@@ -1,5 +1,6 @@
 package com.l0122075.humamalwi.tubes.ui_user.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.l0122075.humamalwi.tubes.DataFilm
+import com.l0122075.humamalwi.tubes.DetailFilmActivity
 import com.l0122075.humamalwi.tubes.MainAdapterAdmin
 import com.l0122075.humamalwi.tubes.MainAdapterUser
 import com.l0122075.humamalwi.tubes.databinding.FragmentHomeUserBinding
@@ -25,7 +27,6 @@ class HomeUserFragment : Fragment() {
     private var _binding: FragmentHomeUserBinding? = null
     private lateinit var filmList: ArrayList<DataFilm>
     private lateinit var firebaseRef: DatabaseReference
-    private lateinit var dataList: ArrayList<DataFilm>
     private lateinit var adapter: MainAdapterUser
 
     // This property is only valid between onCreateView and
@@ -80,6 +81,7 @@ class HomeUserFragment : Fragment() {
                     }
                     adapter = MainAdapterUser(filmList)
                     binding.homeUser.adapter = adapter
+
                 }
 
             }

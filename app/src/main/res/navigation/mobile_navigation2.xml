@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_dashboard">
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.l0122075.humamalwi.tubes.ui_user.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_home"
@@ -11,11 +16,7 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home_user" />
 
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.l0122075.humamalwi.tubes.ui_user.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+
 
     <fragment
         android:id="@+id/navigation_notifications"
