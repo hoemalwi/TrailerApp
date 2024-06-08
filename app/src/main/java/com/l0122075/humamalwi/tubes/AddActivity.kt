@@ -57,6 +57,8 @@ class AddActivity : AppCompatActivity() {
         val Sutradara = binding.editText3.text.toString()
         val DurasiText = binding.editText4.text.toString()
         val Genre = binding.editText5.text.toString()
+        val LinkYT = binding.editText5.text.toString()
+
 
         val TahunRilis = TahunRilisText.toInt()
         val Durasi =  DurasiText.toInt()
@@ -73,7 +75,7 @@ class AddActivity : AppCompatActivity() {
                             Toast.makeText(this, "Foto Berhasil Ditambah", Toast.LENGTH_SHORT).show()
                             val img =  url.toString()
 
-                            Film = DataFilm(FilmID, img, Judul, Sinopsis, TahunRilis, Sutradara, Durasi, Genre)
+                            Film = DataFilm(FilmID, LinkYT, img, Judul, Sinopsis, TahunRilis, Sutradara, Durasi, Genre)
                             firebaseRef.child(FilmID).setValue(Film)
                                 .addOnCompleteListener{
                                     Toast.makeText(this, "Data Sukses Ditambahkan", Toast.LENGTH_SHORT).show()

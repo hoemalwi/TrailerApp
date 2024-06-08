@@ -37,6 +37,7 @@ class UpdateActivity : AppCompatActivity() {
         binding.sutradara.setText(film.Sutradara)
         binding.durasi.setText(film.Durasi.toString())
         binding.genre.setText(film.Genre)
+        binding.link.setText(film.linkyt)
         Picasso.get().load(film.imgfilm).into(binding.image)
 
         val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
@@ -62,6 +63,7 @@ class UpdateActivity : AppCompatActivity() {
         val sutradara = binding.sutradara.text.toString()
         val durasi = binding.durasi.text.toString()
         val genre = binding.genre.text.toString()
+        val link = binding.link.text.toString()
 
         film.Judul = updatedTitle
         film.Sinopsis = updatedSinopsis
@@ -69,6 +71,7 @@ class UpdateActivity : AppCompatActivity() {
         film.Sutradara = sutradara
         film.Durasi = durasi.toInt()
         film.Genre = genre
+        film.linkyt = link
 
         if (imageUri != null) {
             val ref = storageRef.child(film.id.toString())
