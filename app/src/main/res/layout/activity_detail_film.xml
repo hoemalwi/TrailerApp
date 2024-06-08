@@ -33,6 +33,7 @@
         android:layout_marginTop="306dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="140dp"
+        android:textColor="@color/black"
         android:text="INI JUDUL"
         android:textAlignment="viewStart"
         android:textSize="24sp"
@@ -53,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
+        android:textColor="@color/black"
         android:layout_marginStart="240dp"
         android:text="IniGenre"
         android:layout_marginTop="346dp" />
@@ -73,6 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="240dp"
         android:text="iniSutradara"
+        android:textColor="@color/black"
         android:textSize="14sp"
         android:layout_marginTop="371dp" />
 
@@ -91,6 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="iniDurasi"
+        android:textColor="@color/black"
         android:layout_marginStart="240dp"
         android:textSize="14sp"
         android:layout_marginTop="396dp" />
@@ -109,6 +113,7 @@
         android:id="@+id/detailTahunRilis"
         android:layout_width="wrap_content"
         android:text="iniTahunRilis"
+        android:textColor="@color/black"
         android:layout_marginStart="240dp"
         android:layout_height="wrap_content"
         android:textSize="14sp"
@@ -125,6 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="Sinopsis"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:layout_marginTop="481dp" />
 
@@ -138,10 +144,10 @@
         android:id="@+id/detailSinopsis"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:textColor="@color/black"
         android:layout_marginStart="20dp"
         android:textSize="16sp"
         android:layout_marginEnd="20dp"
-
         android:text="Ini Sinopsis"
         android:justificationMode="inter_word"
         android:layout_marginTop="521dp" />
