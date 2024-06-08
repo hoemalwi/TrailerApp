@@ -1,59 +1,152 @@
 <!-- res/layout/activity_detail.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:background="@color/white"
     android:id="@+id/details">
-    
+
     <WebView
-        android:layout_width="match_parent"
-        android:layout_height="250sp"
         android:id="@+id/ytvideo"
-        android:layout_marginBottom="40dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="266dp"
+        android:layout_marginBottom="40dp"
+        />
 
     <ImageView
         android:id="@+id/detailImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="306dp"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/detailJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="306dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="140dp"
+        android:text="INI JUDUL"
+        android:textAlignment="viewStart"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp" />
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/detailSinopsis"
+        android:id="@+id/textGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
-    <TextView
-        android:id="@+id/detailTahunRilis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
-    <TextView
-        android:id="@+id/detailSutradara"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
-    <TextView
-        android:id="@+id/detailDurasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+        android:textSize="14sp"
+        android:textColor="#A9A9A9"
+        android:layout_marginStart="140dp"
+        android:text="Genre"
+        android:layout_marginTop="346dp" />
+
     <TextView
         android:id="@+id/detailGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginStart="240dp"
+        android:text="IniGenre"
+        android:layout_marginTop="346dp" />
+
+    <TextView
+        android:id="@+id/textSutradara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#A9A9A9"
+        android:textSize="14sp"
+        android:layout_marginStart="140dp"
+        android:text="Sutradara"
+        android:layout_marginTop="371dp" />
+
+    <TextView
+        android:id="@+id/detailSutradara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:text="iniSutradara"
+        android:textSize="14sp"
+        android:layout_marginTop="371dp" />
+
+    <TextView
+        android:id="@+id/textDurasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:text="Durasi"
+        android:textColor="#A9A9A9"
+        android:textSize="14sp"
+        android:layout_marginTop="396dp" />
+
+    <TextView
+        android:id="@+id/detailDurasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="iniDurasi"
+        android:layout_marginStart="240dp"
+        android:textSize="14sp"
+        android:layout_marginTop="396dp" />
+
+    <TextView
+        android:id="@+id/textTahunRilis"
+        android:layout_width="wrap_content"
+        android:text="Tahun Rilis"
+        android:textColor="#A9A9A9"
+        android:layout_marginStart="140dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop="421dp" />
+
+    <TextView
+        android:id="@+id/detailTahunRilis"
+        android:layout_width="wrap_content"
+        android:text="iniTahunRilis"
+        android:layout_marginStart="240dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop="421dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#E8EBEA"
+        android:layout_marginTop="476dp"/>
+
+    <TextView
+        android:id="@+id/textSinopsis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Sinopsis"
+        android:textSize="18sp"
+        android:layout_marginTop="481dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#E8EBEA"
+        android:layout_marginTop="511dp"/>
+
+    <TextView
+        android:id="@+id/detailSinopsis"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="20dp"
         android:textSize="16sp"
-        android:layout_marginTop="8dp" />
-</LinearLayout>
+        android:layout_marginEnd="20dp"
+
+        android:text="Ini Sinopsis"
+        android:justificationMode="inter_word"
+        android:layout_marginTop="521dp" />
+
+
+
+
+</RelativeLayout>
