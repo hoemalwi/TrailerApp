@@ -11,6 +11,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -90,6 +91,8 @@ class HomeUserFragment : Fragment() {
 //                Toast.makeText(this, "error: $error", Toast.LENGTH_SHORT).show()
             }
         })
+
+
     }
     fun searchList(text: String) {
         val searchList = ArrayList<DataFilm>()

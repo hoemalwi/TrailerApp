@@ -12,7 +12,8 @@ import com.l0122075.humamalwi.tubes.databinding.ListAdminBinding
 import com.squareup.picasso.Picasso
 
 class MainAdapterAdmin(private val list: ArrayList<DataFilm>): RecyclerView.Adapter<MainAdapterAdmin.ViewHolder>() {
-    class ViewHolder(val binding: ListAdminBinding): RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ListAdminBinding):
+        RecyclerView.ViewHolder(binding.root) {
 
 
     }

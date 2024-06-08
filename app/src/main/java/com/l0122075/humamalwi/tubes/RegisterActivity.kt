@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.l0122075.humamalwi.tubes.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -62,13 +63,37 @@ class RegisterActivity : AppCompatActivity() {
     private fun RegisterFirebase(email: String, pass: String) {
         auth.createUserWithEmailAndPassword(email, pass)
             .addOnCompleteListener(this){
-                if(it.isSuccessful){
-                    Toast.makeText(this, "Berhasil Daftar", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                } else{
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                if (it.isSuccessful) {
+
+                    val user = auth.currentUser
+                    val userId = user?.uid
+                    if (userId != null) {
+                        addUserDataToDatabase(userId, email)
+                    } else {
+                        Toast.makeText(this, "Gagal mendapatkan ID pengguna", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+
+                    Toast.makeText(this, "Gagal Daftar: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
+            }
+    }
+
+    private fun addUserDataToDatabase(userId: String, email: String) {
+
+        val database = FirebaseDatabase.getInstance()
+        val usersRef = database.getReference("users")
+        val userData = hashMapOf(
+            "email" to email,
+        )
+        usersRef.child(userId).setValue(userData)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Berhasil Daftar dan Menyimpan Data", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Gagal menyimpan data: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 }
