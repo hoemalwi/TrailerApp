@@ -1,158 +1,238 @@
 <!-- res/layout/activity_detail.xml -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:id="@+id/details">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <WebView
-        android:id="@+id/ytvideo"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="266dp"
-        android:layout_marginBottom="40dp"
-        />
-
-    <ImageView
-        android:id="@+id/detailImage"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="306dp"
-        android:scaleType="centerCrop"
-        tools:src="@tools:sample/backgrounds/scenic" />
-
-    <TextView
-        android:id="@+id/detailJudul"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="306dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="140dp"
-        android:textColor="@color/black"
-        android:text="INI JUDUL"
-        android:textAlignment="viewStart"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:background="@color/white"
+        android:id="@+id/details"
+        tools:ignore="WebViewLayout">
 
-    <TextView
-        android:id="@+id/textGenre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#A9A9A9"
-        android:layout_marginStart="140dp"
-        android:text="Genre"
-        android:layout_marginTop="346dp" />
+        <WebView
+            android:id="@+id/ytvideo"
+            android:layout_width="0dp"
+            android:layout_height="266dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/detailGenre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="240dp"
-        android:text="IniGenre"
-        android:layout_marginTop="346dp" />
+        <ImageView
+            android:id="@+id/detailImage"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/ytvideo"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/textSutradara"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#A9A9A9"
-        android:textSize="14sp"
-        android:layout_marginStart="140dp"
-        android:text="Sutradara"
-        android:layout_marginTop="371dp" />
+        <TextView
+            android:id="@+id/detailJudul"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:text="INI JUDUL"
+            android:textAlignment="viewStart"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/ytvideo"
+            app:layout_constraintStart_toEndOf="@+id/detailImage"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/detailSutradara"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="240dp"
-        android:text="iniSutradara"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:layout_marginTop="371dp" />
+        <TextView
+            android:id="@+id/textGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#A9A9A9"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Genre"
+            app:layout_constraintTop_toBottomOf="@+id/detailJudul"
+            app:layout_constraintStart_toEndOf="@+id/detailImage" />
 
-    <TextView
-        android:id="@+id/textDurasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:text="Durasi"
-        android:textColor="#A9A9A9"
-        android:textSize="14sp"
-        android:layout_marginTop="396dp" />
+        <TextView
+            android:id="@+id/detailGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="47dp"
+            android:text="IniGenre"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textGenre"
+            app:layout_constraintTop_toTopOf="@id/textGenre" />
 
-    <TextView
-        android:id="@+id/detailDurasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="iniDurasi"
-        android:textColor="@color/black"
-        android:layout_marginStart="240dp"
-        android:textSize="14sp"
-        android:layout_marginTop="396dp" />
+        <TextView
+            android:id="@+id/textSutradara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#A9A9A9"
+            android:textSize="14sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Sutradara"
+            app:layout_constraintTop_toBottomOf="@+id/textGenre"
+            app:layout_constraintStart_toEndOf="@+id/detailImage" />
 
-    <TextView
-        android:id="@+id/textTahunRilis"
-        android:layout_width="wrap_content"
-        android:text="Tahun Rilis"
-        android:textColor="#A9A9A9"
-        android:layout_marginStart="140dp"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="421dp" />
+        <TextView
+            android:id="@+id/detailSutradara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:text="iniSutradara"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textSutradara"
+            app:layout_constraintTop_toTopOf="@+id/textSutradara" />
 
-    <TextView
-        android:id="@+id/detailTahunRilis"
-        android:layout_width="wrap_content"
-        android:text="iniTahunRilis"
-        android:textColor="@color/black"
-        android:layout_marginStart="240dp"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="421dp" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#E8EBEA"
-        android:layout_marginTop="476dp"/>
+        <TextView
+            android:id="@+id/textDurasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Durasi"
+            android:textColor="#A9A9A9"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textSutradara"
+            app:layout_constraintStart_toEndOf="@+id/detailImage" />
 
-    <TextView
-        android:id="@+id/textSinopsis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Sinopsis"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_marginTop="481dp" />
+        <TextView
+            android:id="@+id/detailDurasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:text="iniDurasi"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textDurasi"
+            app:layout_constraintTop_toTopOf="@+id/textDurasi" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="#E8EBEA"
-        android:layout_marginTop="511dp"/>
+        <TextView
+            android:id="@+id/textTahunRilis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tahun Rilis"
+            android:textColor="#A9A9A9"
+            android:layout_marginStart="20dp"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textDurasi"
+            app:layout_constraintStart_toEndOf="@+id/detailImage" />
 
-    <TextView
-        android:id="@+id/detailSinopsis"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:textColor="@color/black"
-        android:layout_marginStart="20dp"
-        android:textSize="16sp"
-        android:layout_marginEnd="20dp"
-        android:text="Ini Sinopsis"
-        android:justificationMode="inter_word"
-        android:layout_marginTop="521dp" />
+        <TextView
+            android:id="@+id/detailTahunRilis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="iniTahunRilis"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textTahunRilis"
+            app:layout_constraintTop_toBottomOf="@id/detailDurasi"
+            app:layout_constraintTop_toTopOf="@+id/textTahunRilis" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:id="@+id/line1"
+            android:background="#E8EBEA"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/detailTahunRilis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <TextView
+            android:id="@+id/textSinopsis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Sinopsis"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@+id/line1"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:id="@+id/line2"
+            android:background="#E8EBEA"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@+id/textSinopsis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/detailSinopsis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp"
+            android:layout_marginEnd="20dp"
+            android:text="Ini Sinopsis"
+            android:justificationMode="inter_word"
+            android:layout_marginTop="7dp"
+            app:layout_constraintTop_toBottomOf="@+id/line2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+
+            android:layout_width="0dp"
+            android:id="@+id/line3"
+            android:layout_height="2dp"
+            android:background="#E8EBEA"
+            android:layout_marginTop="70dp"
+            app:layout_constraintTop_toBottomOf="@+id/detailSinopsis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textfilm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Film Lin"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/line3"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:id="@+id/line4"
+            android:layout_height="3dp"
+            android:background="#E8EBEA"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/textfilm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/film_detail"
+            android:layout_marginTop="10dp"
+            android:scrollbars="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:listitem="@layout/list_user"
+            app:layout_constraintTop_toBottomOf="@+id/line4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -11,8 +11,14 @@ import androidx.core.view.WindowInsetsControllerCompat
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.l0122075.humamalwi.tubes.databinding.ActivityDetailFilmBinding
@@ -24,9 +30,10 @@ class DetailFilmActivity : AppCompatActivity() {
     private lateinit var film: DataFilm
     private lateinit var firebaseRef: DatabaseReference
     private lateinit var storageRef: StorageReference
+    private lateinit var adapter: MainAdapterUser
 
     lateinit var webView: WebView
-    lateinit var video: String
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +64,33 @@ class DetailFilmActivity : AppCompatActivity() {
         binding.detailDurasi.setText(film.Durasi.toString())
         binding.detailGenre.setText(film.Genre)
         Picasso.get().load(film.imgfilm).into(binding.detailImage)
+
+        loadDataFromFirebase()
+
+        binding.filmDetail.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
+    private fun loadDataFromFirebase() {
+        firebaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val filmList = ArrayList<DataFilm>()
+                for (filmSnapshot in snapshot.children) {
+                    val film = filmSnapshot.getValue(DataFilm::class.java)
+                    if (film != null) {
+                        filmList.add(film)
+                    }
+                }
+                adapter = MainAdapterUser(filmList, true)
+                binding.filmDetail.adapter = adapter
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("DetailFilmActivity", "Failed to load data", error.toException())
+            }
+        })
     }
 
     private fun getYoutubeVideoId(url: String): String? {
