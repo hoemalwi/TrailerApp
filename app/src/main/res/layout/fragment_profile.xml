@@ -1,22 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/profile"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui_user.notifications.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_background" />
+
     <TextView
-        android:id="@+id/text_notifications"
+        android:id="@+id/usrname"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textSize="23sp"
+        android:layout_marginStart="15dp"
+        android:layout_toRightOf="@id/img"
+        android:layout_height="wrap_content"
+        android:text="Nama" />
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="15sp"
+        android:layout_below="@id/usrname"
+        android:layout_marginStart="15dp"
+        android:layout_toRightOf="@id/img"
+        android:layout_height="wrap_content"
+        android:text="Email" />
+    <TextView
+        android:id="@+id/umur"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dp"
+        android:textSize="15sp"
+        android:layout_below="@id/email"
+        android:layout_marginStart="15dp"
+        android:layout_toRightOf="@id/img"
+        android:layout_height="wrap_content"
+        android:text="18 tahun" />
+    <TextView
+        android:id="@+id/telp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dp"
+        android:textSize="15sp"
+        android:layout_below="@id/umur"
+        android:layout_marginStart="15dp"
+        android:layout_toRightOf="@id/img"
+        android:layout_height="wrap_content"
+        android:text="08123456789" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="19dp"
+        android:layout_below="@id/img"
+        android:layout_marginTop="26dp"
+        android:background="#E8EBEA" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/line1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="17sp"
+            android:layout_below="@id/line1"
+            android:layout_marginStart="25dp"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile" />
+    </androidx.cardview.widget.CardView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:id="@+id/line2"
+        android:background="#E8EBEA"
+        android:layout_below="@id/edit"
+
+        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/line2"
+            android:layout_marginStart="25dp"
+            android:layout_height="wrap_content"
+            android:text="Logout" />
+    </androidx.cardview.widget.CardView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/line3"
+        android:background="#E8EBEA"
+        android:layout_below="@id/logout"
+        />
+
+
+
+</RelativeLayout>

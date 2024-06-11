@@ -11,11 +11,13 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.l0122075.humamalwi.tubes.databinding.ActivityRegisterBinding
+import java.util.prefs.Preferences
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
     lateinit var auth : FirebaseAuth
     lateinit var userData: DataUser
+    lateinit var pref: preferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,6 +25,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+        pref = preferences(this)
 
         binding.goLogin.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
@@ -63,18 +66,18 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun RegisterFirebase(email: String, pass: String) {
         auth.createUserWithEmailAndPassword(email, pass)
-            .addOnCompleteListener(this){
+            .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
 
                     val user = auth.currentUser
                     val userId = user?.uid
                     if (userId != null) {
+                        pref.prefUserId = userId
                         addUserDataToDatabase(userId, email)
                     } else {
                         Toast.makeText(this, "Gagal mendapatkan ID pengguna", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-
                     Toast.makeText(this, "Gagal Daftar: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -84,7 +87,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("users")
-        userData = DataUser(userId, email, " ", 0, " ")
+        userData = DataUser(userId,null ,email, "Nama", 0, "+012345679")
         usersRef.child(userId).setValue(userData)
             .addOnSuccessListener {
                 Toast.makeText(this, "Berhasil Daftar dan Menyimpan Data", Toast.LENGTH_SHORT).show()

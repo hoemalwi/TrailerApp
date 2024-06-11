@@ -24,17 +24,13 @@ class UserActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
+
         val navController = findNavController(R.id.nav_host_fragment_activity_user)
         navView.setupWithNavController(navController)
 
 
     }
 
-    fun logout(item: MenuItem){
-        pref.prefClear()
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
+
 
 }

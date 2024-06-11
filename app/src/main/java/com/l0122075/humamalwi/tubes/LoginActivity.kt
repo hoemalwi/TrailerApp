@@ -64,21 +64,26 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this){
                 if(it.isSuccessful){
                     pref.prefStatus = true
-                    if (email == "admin@gmail.com"){
-//                        password = admin123
+                    val user = auth.currentUser
+                    val userId = user?.uid
+
+                    if (userId != null) {
+                        pref.prefUserId = userId
+                    }
+
+                    if (email == "admin@gmail.com") {
                         pref.prefEmail = email
                         Toast.makeText(this, "Selamat Datang Admin", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, AdminActivity::class.java)
                         startActivity(intent)
-                    } else{
+                    } else {
                         pref.prefEmail = email
                         Toast.makeText(this, "Selamat Datang $email", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, UserActivity::class.java)
                         startActivity(intent)
                     }
                     finish()
-
-                } else{
+                } else {
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
