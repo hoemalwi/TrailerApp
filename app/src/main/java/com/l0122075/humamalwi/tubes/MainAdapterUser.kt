@@ -32,7 +32,6 @@ class MainAdapterUser(private var list: ArrayList<DataFilm>): RecyclerView.Adapt
         holder.apply {
             binding.apply {
                 title.text = currentItem.Judul
-                description.text = currentItem.Sinopsis
                 Picasso.get().load(currentItem.imgfilm).into(image)
 
                 root.setOnClickListener {
