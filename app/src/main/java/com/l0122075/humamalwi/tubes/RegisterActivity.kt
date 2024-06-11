@@ -15,6 +15,7 @@ import com.l0122075.humamalwi.tubes.databinding.ActivityRegisterBinding
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
     lateinit var auth : FirebaseAuth
+    lateinit var userData: DataUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -83,9 +84,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("users")
-        val userData = hashMapOf(
-            "email" to email,
-        )
+        userData = DataUser(userId, email, " ", 0, " ")
         usersRef.child(userId).setValue(userData)
             .addOnSuccessListener {
                 Toast.makeText(this, "Berhasil Daftar dan Menyimpan Data", Toast.LENGTH_SHORT).show()

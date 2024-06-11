@@ -81,7 +81,7 @@ class HomeUserFragment : Fragment() {
                         val list = Snap.getValue(DataFilm::class.java)
                         filmList.add(list!!)
                     }
-                    adapter = MainAdapterUser(filmList, false)
+                    adapter = MainAdapterUser(filmList, false, false, MainAdapterUser.VIEW_TYPE_USER)
                     binding.homeUser.adapter = adapter
 
                 }

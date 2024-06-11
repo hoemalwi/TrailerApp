@@ -83,7 +83,7 @@ class DetailFilmActivity : AppCompatActivity() {
                         filmList.add(film)
                     }
                 }
-                adapter = MainAdapterUser(filmList, true)
+                adapter = MainAdapterUser(filmList, true, false, MainAdapterUser.VIEW_TYPE_USER)
                 binding.filmDetail.adapter = adapter
             }
 
