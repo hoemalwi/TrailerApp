@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
 import com.l0122075.humamalwi.tubes.DataFilm
 import com.l0122075.humamalwi.tubes.MainAdapterUser
+import com.l0122075.humamalwi.tubes.MainAdapterUser.Companion.VIEW_TYPE_NEWEST
 import com.l0122075.humamalwi.tubes.MainAdapterUser.Companion.VIEW_TYPE_USER
 import com.l0122075.humamalwi.tubes.databinding.FragmentDashboardBinding
 
@@ -61,7 +62,7 @@ class DashboardFragment : Fragment() {
                         val list = Snap.getValue(DataFilm::class.java)
                         filmList.add(list!!)
                     }
-                    autoSlideAdapter = MainAdapterUser(filmList, false, true, VIEW_TYPE_USER)
+                    autoSlideAdapter = MainAdapterUser(filmList, false, true, VIEW_TYPE_NEWEST)
                     homeItemsAdapter = MainAdapterUser(filmList, false, false, VIEW_TYPE_USER)
 
                     binding.autoSlide.adapter = autoSlideAdapter
@@ -86,10 +87,10 @@ class DashboardFragment : Fragment() {
                         scrollPosition = 0
                     }
                     binding.autoSlide.smoothScrollToPosition(scrollPosition++)
-                    handler.postDelayed(this, 2000) // Scroll every 2 seconds
+                    handler.postDelayed(this, 3000) // Scroll every 2 seconds
                 }
             }
-        }, 2000)
+        }, 3000)
     }
 
 

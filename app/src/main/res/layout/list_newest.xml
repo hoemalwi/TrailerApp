@@ -6,14 +6,14 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardElevation="5dp"
-    android:id="@+id/home_list_user_card"
+    android:id="@+id/home_list_newest_card"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackgroundBorderless">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_container"
-        android:layout_width="106.66dp"
+        android:layout_width="390dp"
         android:layout_height="160dp">
 
         <ImageView
@@ -23,7 +23,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="2:3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +35,7 @@
             android:gravity="center"
             android:padding="2dp"
             android:textColor="#FFFFFF"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@id/image"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +47,8 @@
             android:gravity="center"
             android:text="Judul"
             android:textColor="#FFFFFF"
-            android:textSize="10sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/tahun"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -58,11 +57,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingBottom="2dp"
+            android:paddingBottom="5dp"
             android:text="Tahun"
             android:textColor="#FFFFFF"
-            android:textSize="8sp"
-            android:textStyle="bold"
+            android:textSize="13sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@id/image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

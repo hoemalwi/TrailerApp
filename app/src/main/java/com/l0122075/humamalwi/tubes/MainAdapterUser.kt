@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.l0122075.humamalwi.tubes.databinding.ListAdminBinding
+import com.l0122075.humamalwi.tubes.databinding.ListNewestBinding
 import com.l0122075.humamalwi.tubes.databinding.ListUserBinding
 import com.squareup.picasso.Picasso
 
@@ -30,13 +31,13 @@ class MainAdapterUser(
     }
     companion object {
         const val VIEW_TYPE_USER = 0
-        const val VIEW_TYPE_ADMIN = 1
+        const val VIEW_TYPE_NEWEST = 1
     }
 
     class UserViewHolder(val binding: ListUserBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
-    class AdminViewHolder(val binding: ListAdminBinding) : RecyclerView.ViewHolder(binding.root){
+    class AdminViewHolder(val binding: ListNewestBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
@@ -46,8 +47,8 @@ class MainAdapterUser(
                 val binding = ListUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 UserViewHolder(binding)
             }
-            VIEW_TYPE_ADMIN -> {
-                val binding = ListAdminBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            VIEW_TYPE_NEWEST -> {
+                val binding = ListNewestBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 AdminViewHolder(binding)
             }
             else -> throw IllegalArgumentException("Invalid view type")
@@ -64,6 +65,7 @@ class MainAdapterUser(
             is UserViewHolder -> {
                 holder.binding.apply {
                     title.text = currentItem.Judul
+                    tahun.text = currentItem.TahunRilis.toString()
                     Picasso.get().load(currentItem.imgfilm).into(image)
                     root.setOnClickListener {
                         val context = root.context
@@ -76,6 +78,7 @@ class MainAdapterUser(
             is AdminViewHolder -> {
                 holder.binding.apply {
                     title.text = currentItem.Judul
+                    tahun.text = currentItem.TahunRilis.toString()
                     Picasso.get().load(currentItem.imgfilm).into(image)
                     root.setOnClickListener {
                         val context = root.context
@@ -97,7 +100,7 @@ class MainAdapterUser(
         return if (dataList.size > 10) {
             ArrayList(dataList.takeLast(10).reversed())
         } else {
-            dataList.reversed() as ArrayList<DataFilm>
+            ArrayList(dataList.reversed())
         }
     }
 
@@ -105,7 +108,7 @@ class MainAdapterUser(
         return if (dataList.size > 5) {
             ArrayList(dataList.takeLast(5).reversed())
         } else {
-            dataList.reversed() as ArrayList<DataFilm>
+            ArrayList(dataList.reversed())
         }
     }
 

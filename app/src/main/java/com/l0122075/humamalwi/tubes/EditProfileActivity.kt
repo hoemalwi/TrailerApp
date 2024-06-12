@@ -14,6 +14,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.l0122075.humamalwi.tubes.DataUser
 import com.l0122075.humamalwi.tubes.databinding.ActivityEditProfileBinding
 import com.l0122075.humamalwi.tubes.preferences
+import com.l0122075.humamalwi.tubes.ui_user.notifications.ProfileFragment
 import com.squareup.picasso.Picasso
 import java.util.*
 
@@ -180,9 +181,7 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     private fun navigateToProfileFragment() {
-        // Kirim sinyal untuk merefresh fragment
-        setResult(RESULT_OK)
         onBackPressed()
-        finish()
+
     }
 }

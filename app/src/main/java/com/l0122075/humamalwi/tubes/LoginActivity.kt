@@ -61,9 +61,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun LoginFirebase(email: String, pass: String) {
         auth.signInWithEmailAndPassword(email, pass)
-            .addOnCompleteListener(this){
-                if(it.isSuccessful){
-                    pref.prefStatus = true
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
                     val user = auth.currentUser
                     val userId = user?.uid
 
@@ -82,12 +81,14 @@ class LoginActivity : AppCompatActivity() {
                         val intent = Intent(this, UserActivity::class.java)
                         startActivity(intent)
                     }
+                    pref.prefStatus = true
                     finish()
                 } else {
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
 
     override fun onStart() {
         super.onStart()

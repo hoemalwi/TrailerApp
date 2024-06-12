@@ -94,10 +94,11 @@ class DetailFilmActivity : AppCompatActivity() {
     }
 
     private fun getYoutubeVideoId(url: String): String? {
-        val regex = "(?:https?://)?(?:www\\.)?(?:youtube\\.com/watch\\?v=|youtu\\.be/)([a-zA-Z0-9_-]{11})(?:&.*|\\?.*|$)".toRegex()
+        val regex = "(?:https?://)?(?:www\\.)?(?:youtube\\.com/watch\\S*v=|youtu\\.be/)([a-zA-Z0-9_-]{11})(?:&.*|\\?.*|$)".toRegex()
         val matchResult = regex.find(url)
         return matchResult?.groups?.get(1)?.value
     }
+
 
     private fun loadVideo(videoId: String) {
         val video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/$videoId\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
