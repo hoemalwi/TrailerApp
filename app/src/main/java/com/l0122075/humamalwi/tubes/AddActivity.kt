@@ -26,10 +26,8 @@ class AddActivity : AppCompatActivity() {
         binding = ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         firebaseRef  = FirebaseDatabase.getInstance().getReference("film")
         storageRef = FirebaseStorage.getInstance().getReference("images")
-
 
         binding.addButton.setOnClickListener(){
             savedata()
@@ -57,7 +55,7 @@ class AddActivity : AppCompatActivity() {
         val Sutradara = binding.editText3.text.toString()
         val DurasiText = binding.editText4.text.toString()
         val Genre = binding.editText5.text.toString()
-        val LinkYT = binding.editText5.text.toString()
+        val LinkYT = binding.editText6.text.toString()
 
 
         val TahunRilis = TahunRilisText.toInt()
