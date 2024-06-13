@@ -63,13 +63,13 @@
 
         <TextView
             android:id="@+id/detailGenre"
-            android:layout_width="wrap_content"
+            android:layout_width="162dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="47dp"
+            android:layout_marginStart="110dp"
             android:text="IniGenre"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/textGenre"
+            app:layout_constraintStart_toEndOf="@+id/detailImage"
             app:layout_constraintTop_toTopOf="@id/textGenre" />
 
         <TextView
@@ -81,18 +81,18 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="Sutradara"
-            app:layout_constraintTop_toBottomOf="@+id/textGenre"
+            app:layout_constraintTop_toBottomOf="@+id/detailGenre"
             app:layout_constraintStart_toEndOf="@+id/detailImage" />
 
         <TextView
             android:id="@+id/detailSutradara"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
+            android:layout_marginStart="110dp"
             android:text="iniSutradara"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/textSutradara"
+            app:layout_constraintStart_toEndOf="@+id/detailImage"
             app:layout_constraintTop_toTopOf="@+id/textSutradara" />
 
         <TextView
@@ -111,11 +111,21 @@
             android:id="@+id/detailDurasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="110dp"
             android:text="iniDurasi"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/textDurasi"
+            app:layout_constraintStart_toEndOf="@+id/detailImage"
+            app:layout_constraintTop_toTopOf="@+id/textDurasi" />
+        <TextView
+            android:id="@+id/menit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="menit"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/detailDurasi"
             app:layout_constraintTop_toTopOf="@+id/textDurasi" />
 
         <TextView
@@ -134,11 +144,11 @@
             android:id="@+id/detailTahunRilis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="110dp"
             android:text="iniTahunRilis"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/textTahunRilis"
+            app:layout_constraintStart_toEndOf="@+id/detailImage"
             app:layout_constraintTop_toBottomOf="@id/detailDurasi"
             app:layout_constraintTop_toTopOf="@+id/textTahunRilis" />
 
