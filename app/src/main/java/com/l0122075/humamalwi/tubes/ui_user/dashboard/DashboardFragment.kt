@@ -26,8 +26,21 @@ class DashboardFragment : Fragment() {
 
     private val handler = Handler(Looper.getMainLooper())
     private var scrollPosition = 0
+    private var isAutoScrollRunning = false
 
     private val binding get() = _binding!!
+
+    private val autoScrollRunnable = object : Runnable {
+        override fun run() {
+            if (::autoSlideAdapter.isInitialized && autoSlideAdapter.itemCount > 0) {
+                if (scrollPosition == autoSlideAdapter.itemCount) {
+                    scrollPosition = 0
+                }
+                binding.autoSlide.smoothScrollToPosition(scrollPosition++)
+                handler.postDelayed(this, 3000)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +66,24 @@ class DashboardFragment : Fragment() {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (::autoSlideAdapter.isInitialized) {
+            startAutoScroll()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopAutoScroll()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        stopAutoScroll()
+        _binding = null
+    }
+
     private fun loadDataFromFirebase() {
         firebaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -68,30 +99,27 @@ class DashboardFragment : Fragment() {
                     binding.autoSlide.adapter = autoSlideAdapter
                     binding.homeItems.adapter = homeItemsAdapter
 
-
-                    startAutoScroll()
+                    startAutoScroll() // Start auto-scroll after setting the adapter
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                // Handle error if needed
             }
         })
     }
 
     private fun startAutoScroll() {
-        handler.postDelayed(object : Runnable {
-            override fun run() {
-                if (autoSlideAdapter.itemCount > 0) {
-                    if (scrollPosition == autoSlideAdapter.itemCount) {
-                        scrollPosition = 0
-                    }
-                    binding.autoSlide.smoothScrollToPosition(scrollPosition++)
-                    handler.postDelayed(this, 3000) // Scroll every 2 seconds
-                }
-            }
-        }, 3000)
+        if (!isAutoScrollRunning) {
+            isAutoScrollRunning = true
+            handler.postDelayed(autoScrollRunnable, 3000)
+        }
     }
 
-
+    private fun stopAutoScroll() {
+        if (isAutoScrollRunning) {
+            handler.removeCallbacks(autoScrollRunnable)
+            isAutoScrollRunning = false
+        }
+    }
 }
