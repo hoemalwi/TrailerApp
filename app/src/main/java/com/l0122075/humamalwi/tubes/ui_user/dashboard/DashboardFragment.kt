@@ -78,11 +78,6 @@ class DashboardFragment : Fragment() {
         stopAutoScroll()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        stopAutoScroll()
-        _binding = null
-    }
 
     private fun loadDataFromFirebase() {
         firebaseRef.addValueEventListener(object : ValueEventListener {
