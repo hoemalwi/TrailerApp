@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TuBes</string>
+    <string name="app_name">CinePedia</string>
     <string name="title_activity_admin">AdminActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

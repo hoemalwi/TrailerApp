@@ -9,13 +9,16 @@
     <style name="Theme.TuBes" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryVariant">@color/primaryVariantColor</item>
+        <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/onPrimaryColor</item>
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryVariantColor</item>
         <item name="colorOnSecondary">@color/onSecondaryColor</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:statusBarColor" >@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">@font/medium</item>
     </style>
 
     <style name="Theme.TuBes.NoActionBar">
